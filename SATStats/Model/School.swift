@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct School: Codable {
+struct School: Codable, Comparable {
     
     let dbn: String
     let name: String
@@ -19,5 +19,13 @@ struct School: Codable {
         case name = "school_name"
         case boro
         case overview = "overview_paragraph"
+    }
+    
+    static func < (lhs: School, rhs: School) -> Bool {
+        lhs.name < rhs.name
+    }
+    
+    static func > (lhs: School, rhs: School) -> Bool {
+        lhs.name > rhs.name
     }
 }
