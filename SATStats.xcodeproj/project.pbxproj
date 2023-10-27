@@ -13,6 +13,11 @@
 		249D2FF62AEB1F14006D744C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 249D2FF42AEB1F14006D744C /* Main.storyboard */; };
 		249D2FF82AEB1F16006D744C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 249D2FF72AEB1F16006D744C /* Assets.xcassets */; };
 		249D2FFB2AEB1F16006D744C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 249D2FF92AEB1F16006D744C /* LaunchScreen.storyboard */; };
+		24C0E5542AEB492100A8FAB3 /* SchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0E5532AEB492100A8FAB3 /* SchoolViewModel.swift */; };
+		24C0E5562AEB4AFB00A8FAB3 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0E5552AEB4AFB00A8FAB3 /* School.swift */; };
+		24C0E5582AEB4BFF00A8FAB3 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0E5572AEB4BFF00A8FAB3 /* Score.swift */; };
+		24DBDDE42AEB55E0001469AA /* SchoolNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DBDDE32AEB55E0001469AA /* SchoolNetworkManager.swift */; };
+		24DBDDE72AEB56BA001469AA /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DBDDE62AEB56BA001469AA /* URLSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		249D2FF72AEB1F16006D744C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		249D2FFA2AEB1F16006D744C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		249D2FFC2AEB1F16006D744C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24C0E5532AEB492100A8FAB3 /* SchoolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolViewModel.swift; sourceTree = "<group>"; };
+		24C0E5552AEB4AFB00A8FAB3 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		24C0E5572AEB4BFF00A8FAB3 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		24DBDDE32AEB55E0001469AA /* SchoolNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolNetworkManager.swift; sourceTree = "<group>"; };
+		24DBDDE62AEB56BA001469AA /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +68,58 @@
 			children = (
 				249D2FEE2AEB1F14006D744C /* AppDelegate.swift */,
 				249D2FF02AEB1F14006D744C /* SceneDelegate.swift */,
-				249D2FF22AEB1F14006D744C /* ViewController.swift */,
-				249D2FF42AEB1F14006D744C /* Main.storyboard */,
+				24DBDDE52AEB569F001469AA /* Extensions */,
+				24DBDDE22AEB55C6001469AA /* Network */,
+				249D30022AEB1F23006D744C /* Model */,
+				249D30032AEB1F27006D744C /* View Model */,
+				249D30042AEB1F34006D744C /* View Controllers */,
 				249D2FF72AEB1F16006D744C /* Assets.xcassets */,
+				249D2FF42AEB1F14006D744C /* Main.storyboard */,
 				249D2FF92AEB1F16006D744C /* LaunchScreen.storyboard */,
 				249D2FFC2AEB1F16006D744C /* Info.plist */,
 			);
 			path = SATStats;
+			sourceTree = "<group>";
+		};
+		249D30022AEB1F23006D744C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24C0E5552AEB4AFB00A8FAB3 /* School.swift */,
+				24C0E5572AEB4BFF00A8FAB3 /* Score.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		249D30032AEB1F27006D744C /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				24C0E5532AEB492100A8FAB3 /* SchoolViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		249D30042AEB1F34006D744C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				249D2FF22AEB1F14006D744C /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		24DBDDE22AEB55C6001469AA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				24DBDDE32AEB55E0001469AA /* SchoolNetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		24DBDDE52AEB569F001469AA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				24DBDDE62AEB56BA001469AA /* URLSession.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +193,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24C0E5542AEB492100A8FAB3 /* SchoolViewModel.swift in Sources */,
 				249D2FF32AEB1F14006D744C /* ViewController.swift in Sources */,
+				24DBDDE72AEB56BA001469AA /* URLSession.swift in Sources */,
 				249D2FEF2AEB1F14006D744C /* AppDelegate.swift in Sources */,
+				24C0E5562AEB4AFB00A8FAB3 /* School.swift in Sources */,
+				24C0E5582AEB4BFF00A8FAB3 /* Score.swift in Sources */,
+				24DBDDE42AEB55E0001469AA /* SchoolNetworkManager.swift in Sources */,
 				249D2FF12AEB1F14006D744C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +355,7 @@
 				DEVELOPMENT_TEAM = H5L7QT5U7B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SATStats/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -323,6 +384,7 @@
 				DEVELOPMENT_TEAM = H5L7QT5U7B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SATStats/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
