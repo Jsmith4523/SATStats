@@ -31,6 +31,25 @@ class SchoolDetailViewController: UIViewController {
     
     private func setupViews() {
         nameLabel.text = school.name
+        
+        if !(school.coordinate == nil) {
+            let mapButton = UIBarButtonItem(image: UIImage(systemName: "map")!,
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(pushToMapView))
+            
+            navigationItem.rightBarButtonItem = mapButton
+        }
+    }
+    
+    @objc
+    func pushToMapView() {
+        performSegue(withIdentifier: "SchoolMapView", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let schoolMapVC = segue.destination as! SchoolMapViewController
+        schoolMapVC.school = self.school
     }
     
     private func configureScoreLabels() {
@@ -40,7 +59,7 @@ class SchoolDetailViewController: UIViewController {
         self.mathLabel.text = score.satMathScore
     }
     
-    private func fetchTestScores() {
+    private func fetchTestScores(_ action: UIAlertAction? = nil) {
         viewModel.fetchSchoolTestScores(for: school.dbn) { result in
             DispatchQueue.main.async { [weak self] in
                 switch result {
@@ -61,12 +80,12 @@ class SchoolDetailViewController: UIViewController {
     private func showScoreErrorAlert() {
         let ac = UIAlertController(title: "Error", message: "We failed to retrieve SAT Scores for \(school.name). Try again?", preferredStyle: .alert)
         
-        let primaryAction = UIAlertAction(title: "Yes", style: .default)
+        let primaryAction = UIAlertAction(title: "Yes", style: .default, handler: fetchTestScores(_:))
         let secondaryAction = UIAlertAction(title: "Cancel", style: .default)
         
         ac.addAction(primaryAction)
         ac.addAction(secondaryAction)
         
-        show(ac, sender: nil)
+        present(ac, animated: true)
     }
 }

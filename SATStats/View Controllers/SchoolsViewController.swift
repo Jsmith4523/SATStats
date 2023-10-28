@@ -50,7 +50,7 @@ class SchoolsViewController: UIViewController {
         }
         
         func presentErrorAlert() {
-            let ac = UIAlertController(title: "There was an error loading school", message: "Do you want to try again?", preferredStyle: .alert)
+            let ac = UIAlertController(title: "There was an error loading NYC High Schools", message: "Do you want to try again?", preferredStyle: .alert)
             
             let primaryAction = UIAlertAction(title: "Yes", style: .default, handler: getNewYorkSchools(_:))
             let secondaryAction = UIAlertAction(title: "No", style: .default)
@@ -58,7 +58,7 @@ class SchoolsViewController: UIViewController {
             ac.addAction(primaryAction)
             ac.addAction(secondaryAction)
             
-            show(ac, sender: nil)
+            present(ac, animated: true)
         }
     }
     
